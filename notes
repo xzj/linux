@@ -1,0 +1,8 @@
+1. man sudoers
+2. /etc/manpath.config
+3. the PROMPTING section of the bash(1) manual page
+4. inode
+5. umask
+6. view .bashrc and .profile
+7. /etc/profile
+8. /etc/bash.bashrc
