@@ -7,3 +7,4 @@
 7. /etc/profile
 8. /etc/bash.bashrc
 9. /etc/manpath.config
+10. start up files: /etc/profile, .bash_profile, .profile, /etc/bash.bashrc, /etc/bashrc, .bashrc
