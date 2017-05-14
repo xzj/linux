@@ -6,3 +6,4 @@
 6. view .bashrc and .profile
 7. /etc/profile
 8. /etc/bash.bashrc
+9. /etc/manpath.config
