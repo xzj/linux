@@ -26,4 +26,30 @@
         	\item HISTSIZE -- size of the command history file
         	\item HOSTFILE -- file path of the hostname completion
         \end{itemize}
+    
+    \section{Mechanism}
+      \subsection{Shell Startup Configuration}
+        \begin{itemize}
+        	\item Interactive Shells
+        	  \begin{itemize}
+        	  	\item Login Shells
+        	  	  \begin{itemize}
+        	  	  	\item You can tell if a shell is a login shell by running \emph{echo \$0 ;} if the first character is a - , the shell’s a login shell.
+        	  	  	\item The order of the execution of startup files:
+        	  	  	  \begin{itemize}
+        	  	  	  	\item /etc/profile
+        	  	  	  	\item Then it looks for a user’s .bash\_profile, .bash\_login, and .profile files, running only the first one that it sees.
+        	  	  	  	\item Ubuntu hasn't \textasciitilde/.bash\_profile, but \textasciitilde/.profile instead. CentOS hasn't \textasciitilde/.profile, but \textasciitilde/.bash\_profile instead.
+        	  	  	  \end{itemize}
+        	  	  \end{itemize}
+          	    \item Non-Login Shells
+          	      \begin{itemize}
+          	      	\item A non-login shell is an additional shell that you run after you log in. It’s
+          	      	simply any interactive shell that’s not a login shell.
+          	      	\item \emph{bash} runs \emph{/etc/bash.bashrc} or \emph{/etc/bashrc} and then runs the user’s \emph{.bashrc}
+          	      	\item Ubuntu hasn't \emph{/etc/bashrc}, but \emph{/etc/bash.bashrc} instead. CentOS hasn't \emph{/etc/bash.bashrc}, but \emph{/etc/bashrc} instead.
+          	      \end{itemize}
+        	  \end{itemize}
+        	\item Noninteractive Shells -- Don't read any startup files
+        \end{itemize}
 \end{document}
