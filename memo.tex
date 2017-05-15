@@ -26,6 +26,14 @@
         	\item HISTSIZE -- size of the command history file
         	\item HOSTFILE -- file path of the hostname completion
         \end{itemize}
+      \subsection{o}
+        \begin{itemize}
+        	\item OLDPWD
+        \end{itemize}
+      \subsection{p}
+        \begin{itemize}
+        	\item PWD
+        \end{itemize}
     
     \section{Mechanism}
       \subsection{Shell Startup Configuration}
@@ -51,5 +59,63 @@
           	      \end{itemize}
         	  \end{itemize}
         	\item Noninteractive Shells -- Don't read any startup files
+        \end{itemize}
+    
+    \section{Command Examples}
+      \subsection{brace expansion}
+        \begin{itemize}
+        	\item touch memo\{1,2,3,4,5\}
+        	\item ls \{a..f\}\{1..5\}
+        \end{itemize}
+      \subsection{run unaliased commands}
+        \begin{itemize}
+        	\item \verb|\rm| dir --- \emph{run the unaliased rm command}
+        	\item The backslash in front of the command causes any command to run unaliased.
+        \end{itemize}
+      \subsection{chmod}
+        \begin{itemize}
+        	\item chmod -R 755 \$HOME/myapps
+        	\item chmod 000 file
+        	\item chmod ug+rx files
+        	\item chmod go-rwx file
+        \end{itemize}
+      \subsection{chown}
+        \begin{itemize}
+        	\item chown joe /home/joe/memo.txt
+        	\item chown joe:joe /home/joe/memo.txt
+        	\item chown -R joe:joe /media/myusb
+        \end{itemize}
+      \subsection{cp}
+        \begin{itemize}
+        	\item cp -a ...
+        	\item cp -i ...
+        \end{itemize}
+      \subsection{ls}
+        \begin{itemize}
+        	\item ls -aF
+        	\item ls -t
+        	\item ls -S
+        	\item ls \verb|--|hide=g*
+        	\item permission bits
+        	  \begin{itemize}
+        	  	\item -rwsr-xr-x
+        	  	\item drwxrwxr-t
+        	  	\item -rw-rw-r\verb|--|+
+        	  \end{itemize}
+        \end{itemize}
+      \subsection{mv}
+        \begin{itemize}
+        	\item mv -i ...
+        \end{itemize}
+      \subsection{rm}
+        \begin{itemize}
+        	\item rm -i ...
+        \end{itemize}
+      \subsection{umask}
+        \begin{itemize}
+        	\item fully opened permissions for a file is 666 and for a directory is 777
+        	\item the real initial permission is the fully opened permission substracts the argument of \emph{umask}
+        	\item umask
+        	\item umask 022
         \end{itemize}
 \end{document}
