@@ -94,6 +94,71 @@
         	\item cp -a ...
         	\item cp -i ...
         \end{itemize}
+      \subsection{find}
+        \begin{itemize}
+        	\item by date and time
+        	  \begin{itemize}
+        	  	\item -atime, -amin\\
+        	  	      find /var/ftp /var/www -atime +300
+        	  	\item -ctime, -cmin\\
+        	  	      find /bin /usr/bin /sbin /usr/sbin -ctime -3
+        	  	\item -mtime, -mmin\\
+        	  	      find /etc/ -mmin -10
+        	  \end{itemize}
+        	\item by name
+        	  \begin{itemize}
+        	  	\item find /etc -name passwd
+        	  	\item find /etc -iname `*passwd*'
+        	  \end{itemize}
+            \item by permission
+              \begin{itemize}
+              	\item can use numbers or letters for permission
+              	\item find /bin -perm 755 -ls
+              	\item find /home/chris/ -perm -222 -type d -ls
+              	\item find /myreadonly -perm +222 -type f
+              	\item find . -perm -002 -type f -ls
+              \end{itemize}
+            \item by size
+              \begin{itemize}
+              	\item find /usr/share/ -size +10M
+              	\item find /bigdata -size +500M -size -5G -exec du -sh \{\} \verb|\|;
+              \end{itemize}
+            \item by user or group
+              \begin{itemize}
+              	\item find /home -user chris -ls
+              	\item find /home -user chris -or -user joe -ls
+              	\item find /etc -group ntp -ls
+              	\item find /var/spool -not -user root -ls
+              \end{itemize}
+            \item executing commands
+              \begin{itemize}
+              	\item -exec, -execdir
+              	  \begin{itemize}
+              	  	\item find [options] -execdir command {} \verb|\|;
+              	  	\item find /etc -iname iptables -exec echo "I found {}" \verb|\|;
+              	  	\item find /usr/share -size +5M -execdir du {} \verb|\|; | sort -nr
+              	  \end{itemize}
+              	\item -ok, -okdir
+              	  \begin{itemize}
+              	  	\item find [options] -okdir command {} \verb|\|;
+              	  	\item find /var/allusers/ -user joe -ok mv {} /tmp/joe/ \verb|\|;
+              	  \end{itemize}
+              \end{itemize}
+        	\item find dir -ls
+        	\item join with operators
+        	  \begin{itemize}
+        	  	\item find /var/all \verb|\(| -user joe -o -user chris \verb|\)| -ls
+        	  	\item find /var/all/ -user joe -not -group joe -ls
+        	  	\item find /var/all/ -user joe -and -size +1M -ls
+        	  \end{itemize}
+        \end{itemize}
+      \subsection{grep}
+        \begin{itemize}
+        	\item grep desktop /etc/services
+        	\item grep -i desktop /etc/services
+        	\item grep -vi tcp /etc/services
+        	\item grep -rli peerdns /usr/share/doc/
+        \end{itemize}
       \subsection{locate}
         \begin{itemize}
         	\item locate -i ...
